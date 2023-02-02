@@ -20,3 +20,8 @@ BZ -> 3+6 = 9 \
 CX -> 1+6 = 7 \
 CY -> 2+0 = 2 \
 CZ -> 3+3 = 6
+
+#### Part 2
+X - loose \
+Y - draw \
+Z - win

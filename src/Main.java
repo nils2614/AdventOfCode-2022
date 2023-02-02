@@ -12,8 +12,9 @@ public class Main {
 
             while (myScan.hasNextLine()) {
                 String line = myScan.nextLine();
-                totalScore = totalScore + calcScore(line);
-                //System.out.println(line.charAt(0) + "" + line.charAt(2) + ": " + calcScore(line));
+                //totalScore = totalScore + calcScore(line); //use for Part 1
+                totalScore = totalScore + calcOutcome(line); //use for Part 2
+                //System.out.println(line.charAt(0) + "" + line.charAt(2) + ": " + calcScore(line)); //debug part for Part 1
             }
             System.out.println(totalScore);
 
@@ -57,6 +58,50 @@ public class Main {
                     return 2;
                 case 'Z':
                     return 6;
+                default:
+                    return -1;
+            }
+        }
+        else {
+            return -1;
+        }
+    }
+
+    public static int calcOutcome(String line) {
+        char c1 = line.charAt(0);
+        char c2 = line.charAt(2);
+        if (c1 == 'A') {
+            switch(c2) {
+                case 'X':
+                    return 3;
+                case 'Y':
+                    return 1 + 3;
+                case 'Z':
+                    return 2 + 6;
+                default:
+                    return -1;
+            }
+        }
+        else if (c1 == 'B') {
+            switch(c2) {
+                case 'X':
+                    return 1;
+                case 'Y':
+                    return 2 + 3;
+                case 'Z':
+                    return 3 + 6;
+                default:
+                    return -1;
+            }
+        }
+        else if (c1 == 'C') {
+            switch(c2) {
+                case 'X':
+                    return 2;
+                case 'Y':
+                    return 3 + 3;
+                case 'Z':
+                    return 1 + 6;
                 default:
                     return -1;
             }

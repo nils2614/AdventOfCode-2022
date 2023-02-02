@@ -1,5 +1,4 @@
 // Day 1 of Advent of Code by Nils Offermann
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;

@@ -1,47 +1,68 @@
-// Day 1 of Advent of Code by Nils Offermann
+// Day 2 of Advent of Code by Nils Offermann
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
         try {
             File myInput = new File("./src/input.txt");
             Scanner myScan = new Scanner(myInput);
+            int totalScore = 0;
 
-            int elfen = 1;
             while (myScan.hasNextLine()) {
                 String line = myScan.nextLine();
-                if (line.isEmpty()) {
-                    elfen++;
-                }
+                totalScore += calcScore(line);
+                System.out.println(line.charAt(0) + "" + line.charAt(2) + ": " + calcScore(line));
             }
-            //System.out.println(elfen);
-
-            int[] calories = new int[elfen];
-            myScan = new Scanner(myInput);
-            String line;
-
-            for (int i = 0; i < elfen; i++) {
-                while (myScan.hasNextLine()) {
-                    line = myScan.nextLine();
-                    if (!line.isEmpty()) {
-                        calories[i] += Integer.parseInt(line);
-                        //System.out.println(i + ": " + line);
-                    }
-                    else {
-                        break;
-                    }
-                }
-            }
-            Arrays.sort(calories);
-            System.out.println("The elf with the most calories carries: " + calories[250] + " calories.");
-            System.out.println("The three elves with the most calories carry: " + (calories[250] + calories[249] + calories[248]) + " calories.");
-            myScan.close();
+            System.out.println(totalScore);
 
         } catch (FileNotFoundException e) {
             System.out.println("error");
+        }
+    }
+
+    public static int calcScore(String line) {
+        char c1 = line.charAt(0);
+        char c2 = line.charAt(2);
+        if (c1 == 'A') {
+            switch(c2) {
+                case 'X':
+                    return 4;
+                case 'Y':
+                    return 8;
+                case 'Z':
+                    return 3;
+                default:
+                    return -1;
+            }
+        }
+        else if (c1 == 'B') {
+            switch(c2) {
+                case 'X':
+                    return 1;
+                case 'Y':
+                    return 5;
+                case 'Z':
+                    return 9;
+                default:
+                    return -1;
+            }
+        }
+        else if (c1 == 'C') {
+            switch(c2) {
+                case 'X':
+                    return 7;
+                case 'Y':
+                    return 2;
+                case 'Z':
+                    return 0;
+                default:
+                    return -1;
+            }
+        }
+        else {
+            return -1;
         }
     }
 }

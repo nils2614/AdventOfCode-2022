@@ -12,8 +12,8 @@ public class Main {
 
             while (myScan.hasNextLine()) {
                 String line = myScan.nextLine();
-                totalScore += calcScore(line);
-                System.out.println(line.charAt(0) + "" + line.charAt(2) + ": " + calcScore(line));
+                totalScore = totalScore + calcScore(line);
+                //System.out.println(line.charAt(0) + "" + line.charAt(2) + ": " + calcScore(line));
             }
             System.out.println(totalScore);
 
@@ -56,7 +56,7 @@ public class Main {
                 case 'Y':
                     return 2;
                 case 'Z':
-                    return 0;
+                    return 6;
                 default:
                     return -1;
             }

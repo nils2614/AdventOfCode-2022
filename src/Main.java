@@ -36,6 +36,7 @@ public class Main {
 
             Arrays.sort(calories);
             System.out.println("The elf with the most calories carries: " + calories[250] + " calories.");
+            System.out.println("The three elves with the most calories carry: " + (calories[250] + calories[249] + calories[248]) + " calories.");
             myScan.close();
 
         } catch (FileNotFoundException e) {

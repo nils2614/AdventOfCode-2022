@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0755464-4337-4684-ac5e-8a7bfada8cfb" name="Changes" comment="Add Readme">
-      <change afterPath="$PROJECT_DIR$/src/input.txt" afterDir="false" />
+    <list default="true" id="b0755464-4337-4684-ac5e-8a7bfada8cfb" name="Changes" comment="Part two of Day 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -32,7 +31,14 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -43,6 +49,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675252479963</updated>
+      <workItem from="1675275472495" duration="85000" />
+      <workItem from="1675276180689" duration="626000" />
+      <workItem from="1675280613869" duration="333000" />
+      <workItem from="1675325268697" duration="442000" />
+      <workItem from="1675325917089" duration="342000" />
     </task>
     <task id="LOCAL-00001" summary="Add Readme">
       <created>1675252629406</created>
@@ -54,9 +65,13 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Add Readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Readme" />
+    <MESSAGE value="Part two of Day 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Part two of Day 1" />
   </component>
 </project>

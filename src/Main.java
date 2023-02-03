@@ -2,14 +2,16 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) {
         try {
             File myInput = new File("./src/input.txt");
             Scanner myScan = new Scanner(myInput);
-            int totalPriority = 0;
 
+            // Part 1
+            int totalPriority = 0;
             while (myScan.hasNextLine()) {
                 String line = myScan.nextLine();
                 totalPriority += priorityOfDublicate(line);
@@ -17,6 +19,17 @@ public class Main {
             }
             System.out.println("The sum of the priorities of the dublicates is: " + totalPriority);
             //System.out.println(priorityOfDublicate("CrZsJsPPZsGzwwsLwLmpwMDw")); // Test with any given string
+
+            // Part 2
+            myScan = new Scanner(myInput);
+            totalPriority = 0;
+            while (myScan.hasNextLine()) {
+                String line1 = myScan.nextLine();
+                String line2 = myScan.nextLine();
+                String line3 = myScan.nextLine();
+                totalPriority += priorityOfChar(findBadge(line1, line2, line3));
+            }
+            System.out.println("The sum of the priorities of the badges is: " + totalPriority);
 
         } catch (FileNotFoundException e) {
             System.out.println("error");
@@ -39,16 +52,39 @@ public class Main {
     }
 
     public static int priorityOfDublicate(String line) {
-        int asciiValue = findDublicate(line);
+        return priorityOfChar(findDublicate(line));
+    }
 
-        if ((asciiValue > 96) && (asciiValue < 123)) { // test for lowercase letter
-            return asciiValue - 96;
+    public static int priorityOfChar(char x) {
+        if ((x > 96) && (x < 123)) { // test for lowercase letter
+            return x - 96;
         }
-        else if ((asciiValue > 64) && (asciiValue < 91)) { // test for uppercase letter
-            return asciiValue - 38;
+        else if ((x > 64) && (x < 91)) { // test for uppercase letter
+            return x - 38;
         }
         else {
             return -1;
         }
+    }
+
+    public static char findBadge(String s1, String s2, String s3) {
+
+        HashSet<Character> lineComp = new HashSet<Character>();
+
+        for (int i = 0; i < s1.length(); i++) {
+            for (int j = 0; j < s2.length(); j++) {
+                if (s1.charAt(i) == s2.charAt(j)) {
+                    lineComp.add(s1.charAt(i));
+                }
+            }
+        }
+        // System.out.println(lineComp);
+
+        for (int i = 0; i < s3.length(); i++) {
+            if (lineComp.contains(s3.charAt(i))) {
+                return s3.charAt(i);
+            }
+        }
+        return ' ';
     }
 }

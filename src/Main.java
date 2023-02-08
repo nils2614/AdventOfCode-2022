@@ -10,14 +10,49 @@ public class Main {
             Scanner myScan = new Scanner(myInput);
 
             // Part 1
+            int containedSets = 0;
             while (myScan.hasNextLine()) {
                 String line = myScan.nextLine();
-                //code here
+                if (isFullyContained(line)) {
+                    containedSets++;
+                }
             }
-            System.out.println("done");
+            System.out.println("Fully contained assignment pairs: " + containedSets);
 
         } catch (FileNotFoundException e) {
             System.out.println("error");
         }
+    }
+
+    public static Boolean isFullyContained(String line) {
+        int[] idList = getIDs(line);
+        if (idList[0] <= idList[2] && idList[1] >= idList[3]) {
+            return true;
+        }
+        else if (idList[2] <= idList[0] && idList[3] >= idList[1]) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    public static int[] getIDs(String line) {
+        int[] idList = {0, 0, 0, 0};
+        int id = 0;
+        for (int i = 0; i < line.length(); i++) {
+            if (isNumber(i, line)) {
+                idList[id] = idList[id] * 10 + line.charAt(i) - 48; // Append digit to int
+            }
+            else {
+                id++;
+            }
+        }
+        //System.out.println(idList[0] + " " + idList[1] + " " + idList[2] + " " + idList[3]); // debug print
+        return idList;
+    }
+
+    public static Boolean isNumber(int pos, String string) {
+        char myChar = string.charAt(pos);
+        return (myChar > 47 && myChar < 58);
     }
 }

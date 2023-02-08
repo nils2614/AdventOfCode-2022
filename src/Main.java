@@ -19,6 +19,17 @@ public class Main {
             }
             System.out.println("Fully contained assignment pairs: " + containedSets);
 
+            // Part 2
+            int overlappingSets = 0;
+            myScan = new Scanner(myInput);
+            while (myScan.hasNextLine()) {
+                String line = myScan.nextLine();
+                if (isOverlapping(line)) {
+                    overlappingSets++;
+                }
+            }
+            System.out.println("Overlapping assignment pairs: " + overlappingSets);
+
         } catch (FileNotFoundException e) {
             System.out.println("error");
         }
@@ -36,6 +47,17 @@ public class Main {
             return false;
         }
     }
+
+    public static Boolean isOverlapping(String line) {
+        int[] idList = getIDs(line);
+        // very ugly solution, but works ¯\_(ツ)_/¯
+        if (idList[2] >= idList[0] && idList[2] <= idList[1]) { return true; }
+        if (idList[3] >= idList[0] && idList[3] <= idList[1]) { return true; }
+        if (idList[0] >= idList[2] && idList[0] <= idList[3]) { return true; }
+        if (idList[1] >= idList[2] && idList[1] <= idList[3]) { return true; }
+        return false;
+    }
+
     public static int[] getIDs(String line) {
         int[] idList = {0, 0, 0, 0};
         int id = 0;

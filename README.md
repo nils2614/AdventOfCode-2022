@@ -1,5 +1,3 @@
-# Advent of Code - Day 3
+# Advent of Code - Day 4
 
-Day 3 of Advent of Code by Nils Offermann
-
-##### _heyyy how ja doin :p_
+Day 4 of Advent of Code by Nils Offermann

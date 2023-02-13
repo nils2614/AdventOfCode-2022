@@ -10,8 +10,8 @@ import (
 
 func main() {
 	var inputSlice []string = fileToSlice("./src/input.txt")
-	var myStacks [][]string = initializeStacks(inputSlice, 9, 8)
-	fmt.Println(myStacks[2])
+	var stackSlice [][]string = initializeStacks(inputSlice, 9, 8) //inputSlice[10]
+	stackSlice = modifyStacks(stackSlice, "move 3 from 9 to 4")
 }
 
 func fileToSlice(inputFile string) []string {
@@ -48,4 +48,29 @@ func initializeStacks(inputSlice []string, width int, height int) [][]string {
 	}
 
 	return stackArray
+}
+
+func modifyStacks(mySlice [][]string, mod string) [][]string {
+	interpretModification(mod)
+	return mySlice
+}
+
+func interpretModification(mod string) [3]int {
+	returnArray := [3]int{0, 0, 0}
+	spaces := [5]int{}
+	index := 0
+
+	for i := 0; i < len(mod); i++ {
+		if mod[i] == 32 {
+			spaces[index] = i
+			index++
+		}
+	}
+
+	fmt.Println(spaces)
+	fmt.Println(string(mod[spaces[0]+1]))
+	fmt.Println(string(mod[spaces[2]+1]))
+	fmt.Println(string(mod[spaces[4]+1]))
+
+	return returnArray
 }

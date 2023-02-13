@@ -1,5 +1,5 @@
-# Advent of Code - Day 4
+# Advent of Code - Day 5
 
-Day 4 of Advent of Code by Nils Offermann
+Day 5 of Advent of Code by Nils Offermann
 
-to be continued.. *hopefully*
+*Now in Go!*

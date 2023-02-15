@@ -30,7 +30,10 @@ func fileToSlice(inputFile string) []string {
 		text = append(text, scanner.Text())
 	}
 
-	file.Close()
+	err = file.Close()
+	if err != nil {
+		return nil
+	}
 	return text
 }
 

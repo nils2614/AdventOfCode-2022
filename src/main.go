@@ -6,12 +6,13 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 )
 
 func main() {
 	var inputSlice []string = fileToSlice("./src/input.txt")
 	var stackSlice [][]string = initializeStacks(inputSlice, 9, 8) //inputSlice[10]
-	stackSlice = modifyStacks(stackSlice, "move 3 from 9 to 4")
+	stackSlice = modifyStacks(stackSlice, "move 35 from 9 to 423")
 }
 
 func fileToSlice(inputFile string) []string {
@@ -57,7 +58,7 @@ func modifyStacks(mySlice [][]string, mod string) [][]string {
 
 func interpretModification(mod string) [3]int {
 	returnArray := [3]int{0, 0, 0}
-	spaces := [5]int{}
+	spaces := [6]int{}
 	index := 0
 
 	for i := 0; i < len(mod); i++ {
@@ -66,11 +67,20 @@ func interpretModification(mod string) [3]int {
 			index++
 		}
 	}
+	spaces[5] = len(mod) // Add end of line as pseudo space
 
 	fmt.Println(spaces)
-	fmt.Println(string(mod[spaces[0]+1]))
-	fmt.Println(string(mod[spaces[2]+1]))
-	fmt.Println(string(mod[spaces[4]+1]))
+	for i := 0; i < 3; i++ {
+		tempNumber := ""
+		for j := 1; j <= (spaces[(i*2)+1] - spaces[(i*2)] - 1); j++ {
+			tempNumber = tempNumber + string(mod[spaces[(i*2)]+j])
+		}
+		//fmt.Println(tempNumber) // debug print
 
+		toInt, _ := strconv.Atoi(tempNumber)
+		returnArray[i] = toInt
+	}
+
+	fmt.Println(returnArray)
 	return returnArray
 }
